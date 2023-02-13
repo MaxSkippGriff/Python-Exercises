@@ -1,0 +1,26 @@
+.game-window {
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	 background: rgba(0, 0, 0, 0.5);
+	 right: 0;
+	 bottom: 0;
+	 opacity: 0;
+	 visibility: hidden;
+	 transition: opacity 0.5s;
+}
+ .game-window__content {
+	 background: #fff;
+	 width: 360px;
+	 padding: 25px;
+  	margin-top: - 120;
+	 border-radius: 10px;
+	 position: absolute;
+	 left: 50%;
+	 top: 50%;
+	 transform: translate(-50%, -50%);
+}
+ .game-window--visible {
+	 opacity: 1;
+	 visibility: visible;
+}

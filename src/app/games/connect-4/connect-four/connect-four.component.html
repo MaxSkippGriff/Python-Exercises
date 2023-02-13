@@ -1,0 +1,87 @@
+<app-background></app-background>
+<div class="connect-four">
+    <h3 id="space"></h3>
+    <h3><span id="current-player">Waiting for players... <p class="instruction">(press connect and ready to start the game)</p></span></h3>
+    <h3 id="result"></h3>
+    <div class="wrapper">
+        <div class="empty">
+        </div>
+        <div class="grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class=bottom></div>
+            <div class=bottom></div>
+            <div class=bottom></div>
+            <div class=bottom></div>
+            <div class=bottom></div>
+            <div class=bottom></div>
+            <div class=bottom></div>
+        </div>
+        <div class="jitsi">
+            <app-jitsi></app-jitsi>
+            <p class="username"> <i class="bi bi-person-circle"></i> player: {{opponent.username}} </p>
+              <div class="addFriend" *ngIf="!!opponent.username.length">
+                 <a (click)="addFriend($event)" class="button" *ngIf="!isFriend; else elseBlock"> <i class="bi bi-person-plus-fill"></i> Add {{opponent.username}} to Friendlist</a>
+                 <ng-template #elseBlock>
+                   <p class="text"> <i class="bi bi-person-check-fill"></i> friend added </p>
+                 </ng-template>
+             </div>
+       </div>
+    </div>
+    <div class="setup">
+        <button id="connectButton">Connect</button>
+        <button id="readyButton">Ready</button>
+        <div class="player p1">
+            Waiting...
+            <span></span>
+            <div class="connected"></div>
+            <div class="ready"></div>
+        </div>
+        <div class="player p2">
+            Waiting...
+            <span></span>
+            <div class="connected"></div>
+            <div class="ready"></div>
+        </div>
+    </div>
+</div>

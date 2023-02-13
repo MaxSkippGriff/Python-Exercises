@@ -1,0 +1,117 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<br>
+<br>
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <h1>{{currentUser}}</h1>
+              <p>{{info.email}}</p>
+          </div>
+          <br>
+          <br>
+          <div class="editing" *ngIf="editing; else elseBlock">
+            <div class="panel-body bio-graph-info">
+              <form>
+                <div class="form-group">
+                    <label for="inputFirstName">First name</label>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="info.name" placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label for="inputLastName">Last name</label>
+                    <input type="text" class="form-control" name="surname" [(ngModel)]="info.surname" placeholder="Last name">
+                </div>
+                <div class="form-group">
+                    <label for="inputAge">Age</label>
+                    <input type="text" class="form-control" name="age" [(ngModel)]="info.age" placeholder="70">
+                </div>
+                <div class="form-group">
+                    <label for="inputGender">Gender</label>
+                    <input type="text" class="form-control" name="gender" [(ngModel)]="info.gender" placeholder="Female">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="info.email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="inputLocation">Location</label>
+                    <input type="text" class="form-control" name="location" [(ngModel)]="info.location" placeholder="Bristol">
+                </div>
+          </form>
+            </div>
+            <br>
+              <ul class="nav nav-pills nav-stacked col-md-8">
+                  <li><a (click)="save($event)" class="choice"> <i class="fa fa-edit"></i> save</a></li>
+              </ul>
+          </div>
+          <ng-template #elseBlock>
+          <div class="panel-body bio-graph-info">
+            <h1 class="section_name">Personal Information</h1>
+                <div class="col-md-12">
+                    <p><span>First Name: </span>{{info.name}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><span>Last Name: </span> {{info.surname}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><span>Age: </span> {{info.age}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><span>Gender:</span> {{info.gender}}</p>
+                </div>
+                <div class="col-md-12">
+                    <p><span>Location: </span> {{info.location}}</p>
+                </div>
+                <div class="col-md-12">
+                  <p><span>Email: </span>{{info.email}}</p>
+              </div>
+        </div>
+        <br>
+          <ul class="nav nav-pills nav-stacked col-md-8 editProfile" *ngIf="isVisitor; else elseBlock2">
+            <li><a (click)="backToProfile()" class="choice"> <i class="fas fa-backward"></i> Back</a></li>
+          </ul>
+          <ng-template #elseBlock2>
+            <ul class="nav nav-pills nav-stacked col-md-8 editProfile" >
+              <li><a (click)="edit($event)" class="choice"> <i class="fa fa-edit"></i> Edit profile</a></li>
+          </ul>
+          </ng-template>
+        </ng-template>
+    </div>
+  </div>
+  <div class="profile-info col-md-4">
+      <div class="panel friendlist">
+        <h1 class="section_name">FRIENDS</h1>
+        <ul>
+          <li *ngFor="let friend of friends">
+            <a class="friends" (click)="viewFriend(friend)"> {{friend}}</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      <div class="profile-info panel activites col-md-5">
+        <h1 class="section_name"> Recent Matches</h1>
+        <table>
+          <thead>
+            <tr>
+              <th class="table_name">Game</th>
+              <th class="table_name">Played With</th>
+              <th class="table_name">Result</th>
+              <th class="table_name">Date</th>
+            </tr>
+          </thead>
+      
+          <tbody>
+            <tr
+              *ngFor="let game of games"
+            >
+              <td class="ele gamename">{{game.gamename}}</td>
+              <td class="ele playedwith">{{game.playedWith}}</td>
+              <td class="ele result">{{game.result}}</td>
+              <td class="ele date">{{game.date}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

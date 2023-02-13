@@ -1,0 +1,45 @@
+/*
+   styles for ranking table
+   and button.
+*/
+.table-container {
+	 width: 1800px;
+	 max-width: 800%;
+	 margin: 10px auto;
+	 max-height: 200px;
+	 overflow-y: scroll;
+  justify-content: center;
+}
+ .ranking-table {
+  padding: 100px;
+  position: absolute;
+	 width: 95%;
+	 text-align: center;
+  justify-content: center;
+	 border-collapse: collapse;
+  flex-flow: row wrap;
+	 color: #fff;
+  margin-top: 140px;
+}
+ .ranking-table__tr {
+
+	 background: rgba(255, 255, 255, 0.15);
+}
+ .ranking-table__tr:nth-child(even) {
+
+	 background: #4d8c22;
+}
+ .ranking-table__td {
+
+	 padding: 10px 0;
+}
+ .ranking-table__th {
+
+	 font-weight: normal;
+	 background: #2b4e13;
+	 padding: 10px 0;
+}
+ app-button {
+	 text-align: center;
+	 display: block;
+}

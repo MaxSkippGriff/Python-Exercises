@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url(../../start-page/btngrp1/btngrp1.component.css);
+
+
+.title {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: block;
+    text-align: center;
+}
+
+.alt {
+    display: block;
+    color: whitesmoke;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 15px;
+    text-align: center;
+}
+.button-group {
+    display: none;
+}
+
+@media (min-width: 1430px) { 
+    .alt {display:none}
+    .title {display: block}
+    .button-group {
+        display:flex;
+    }
+} 

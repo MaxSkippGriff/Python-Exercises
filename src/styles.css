@@ -1,0 +1,31 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+body{
+    margin: 0 0 0 0;
+    padding:0%;
+    animation : bgColor 20s linear infinite;
+}
+@keyframes bgColor
+{
+    0%
+    {
+        background: #F44336;
+    }
+    25%
+    {
+        background: #03a9f4;
+    }
+    50%
+    {
+        background: #9c27b0;
+    }
+    75%
+    {
+        background: uniquewhite;
+    }
+    100%
+    {
+        background: #f44336;
+    }
+}

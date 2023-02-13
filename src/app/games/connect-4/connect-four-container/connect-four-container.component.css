@@ -1,0 +1,8 @@
+#test {
+    display: none;
+}
+
+#finish {
+    visibility: hidden;
+    opacity: 0;
+}

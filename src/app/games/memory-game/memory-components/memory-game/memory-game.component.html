@@ -1,0 +1,65 @@
+<!--Set class attributes for HTML elements-->
+
+<app-background></app-background>
+<app-heading></app-heading>
+
+<div class="memory-game">
+  <!--Container for both the cards and Jitsi-->
+  <!--Contains two card divs - one is a dummy set for both players 
+  before readying up and creating the shared deck-->
+  <div class="cards_jitsi">
+    <div class="card_container">
+      <ng-container *ngIf="gameService.start === false">
+        <div class="memory-game__cards">
+          <app-card *ngFor="let card of gameService.cards" [card]="card"></app-card>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="gameService.start === true">
+        <div class="memory-game__cards">
+          <app-card *ngFor="let card of gameService.cards" [card]="card"></app-card>
+        </div>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="gameService.serverNotFull">
+      <div class="jitsi">
+        <app-jitsi></app-jitsi>
+        <p class="username"> <i class="bi bi-person-circle"></i> player: {{gameService.opponent.username}} </p>
+        <div class="addFriend" *ngIf="gameService.gameStarted">
+        <a  (click)="addFriend($event)" class="button" *ngIf="!gameService.isFriend else elseBlock"> <i class="bi bi-person-plus-fill"></i> Add {{gameService.opponent.username}} to Friendlist</a>
+        <ng-template #elseBlock>
+          <p class="text"> <i class="bi bi-person-check-fill"></i> friend added </p>
+        </ng-template>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="memory-game__info">
+    <p>Rounds: {{ gameService.rounds }}</p>
+
+    <p>Player: {{ gameService.playerName }}</p>
+  </div>
+
+  <!--Buttons to connect and emit ready signal-->
+  <div class="btns"> 
+    <app-connect-button (click)="gameService.connectToGame()"></app-connect-button>
+    <app-ready-button (click)="gameService.readyToPlay()"></app-ready-button>
+  </div>
+
+
+  <!--Window for end of gameplay-->
+  <app-game-window [visible]="gameService.isGameOver">
+    <div class="game-window-content">
+
+      <!--Button to play again-->
+      <app-button (click)="gameService.playAgain()" type="button">
+        Play again
+      </app-button>
+      <app-button (click)="backToHome()" type="button">
+        Exit
+      </app-button>
+
+      <a class="game-window-content__link" routerLink="/ranking">Leaderboard </a>
+    </div>
+  </app-game-window>
+</div>
